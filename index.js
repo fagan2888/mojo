@@ -30,8 +30,8 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-    let allData = document.getElementById('firstData').innerHTML;
-    let fromDb = document.getElementById('secondData').innerHTML;
+    let allData = document.getElementById('firstData').innerText;
+    let fromDb = document.getElementById('secondData').innerText;
 
     codeAddress(fromDb)
     showAllAddress(allData);
