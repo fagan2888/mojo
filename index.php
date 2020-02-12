@@ -19,9 +19,9 @@
 
   
 
-<script> let allData = <?php print_r($all);?>;   
+<script> let allData = <?php print_r($all)?>;   
 
-let fromDb = <?php print_r($coll);?>;   </script> 
+let fromDb = <?php print_r($coll)?>;   </script> 
 <div class="container ">
 <div id="map"></div>
 <div class="text-center border border-light p-5 col-md-5"  >
