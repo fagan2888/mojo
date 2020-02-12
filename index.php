@@ -19,7 +19,8 @@
 
   
 
-
+<script> let allData = <?php print_r($all);?>;</script> 
+<script> let fromDb = <?php print_r($coll);?>;</script>
    
 <div class="container ">
 <h3>My Google Maps Demo</h3>
