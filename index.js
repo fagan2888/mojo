@@ -30,8 +30,8 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+    codeAddress(fromDb)
     showAllAddress(allData);
-      
     function showAllAddress(allData){
         allData.forEach(data=>{
             var marker = new google.maps.Marker({
