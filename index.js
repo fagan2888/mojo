@@ -13,7 +13,7 @@ function initMap() {
           };
     
           infoWindow.setPosition(pos);
-          infoWindow.setContent('המיקום שלך.');
+          infoWindow.setContent('המיקום.');
           infoWindow.open(map);
           map.setCenter(pos);
         }, function() {
@@ -30,8 +30,8 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-    codeAddress(fromDb)
     showAllAddress(allData);
+        // codeAddress(fromDb)
     function showAllAddress(allData){
         allData.forEach(data=>{
             var marker = new google.maps.Marker({
