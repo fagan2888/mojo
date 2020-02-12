@@ -2,9 +2,9 @@
 //connect to DB
 class Dbconnect{
 private $host = 'localhost';
-private $dbname ='education';
-private $user = 'root';
-private $pass = '';
+private $dbname ='nirsaban_mojo';
+private $user = 'nirsaban_mojo';
+private $pass = '123456';
 public function connect(){
     try {
         $conn = new PDO('mysql:host=' .$this->host. ';dbname='.$this->dbname ,$this->user,$this->pass);
