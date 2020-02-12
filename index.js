@@ -13,7 +13,7 @@ function initMap() {
           };
     
           infoWindow.setPosition(pos);
-          infoWindow.setContent('מצאנו אותך יקקה.');
+          infoWindow.setContent('המיקום שלך.');
           infoWindow.open(map);
           map.setCenter(pos);
         }, function() {
@@ -30,6 +30,9 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+    let allData = document.getElementById('firstData').innerHTML;
+    let fromDb = document.getElementById('secondData').innerHTML;
+
     codeAddress(fromDb)
     showAllAddress(allData);
     function showAllAddress(allData){
