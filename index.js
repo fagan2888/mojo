@@ -31,7 +31,7 @@ function initMap() {
         infoWindow.open(map);
       }
     showAllAddress(allData);
-        // codeAddress(fromDb)
+      
     function showAllAddress(allData){
         allData.forEach(data=>{
             var marker = new google.maps.Marker({
