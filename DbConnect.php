@@ -1,7 +1,7 @@
 <?php
 //connect to DB
 class Dbconnect{
-private $host = 'nirsaban.net';
+private $host = 'localhost';
 private $dbname ='nirsaban_mojo';
 private $user = 'nirsaban_mojo';
 private $pass = '123456';
