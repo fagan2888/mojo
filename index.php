@@ -18,8 +18,8 @@
   <body>
 
   
-<script> let fromDb =<?php print_r($coll); ?>; let allData = <?php print_r($all);?>; console.log(fromDb) </script>
-
+<script> let fromDb = <?php print_r($coll) ?>;</script>
+<script> let allData = <?php print_r($all)?>;</script> 
 
    
 <div class="container ">
