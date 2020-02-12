@@ -13,7 +13,7 @@ function initMap() {
           };
     
           infoWindow.setPosition(pos);
-          infoWindow.setContent('מצאנו אותך יקקה.');
+          infoWindow.setContent('המיקום שלך.');
           infoWindow.open(map);
           map.setCenter(pos);
         }, function() {

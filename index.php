@@ -19,11 +19,12 @@
 
   
 
-<script> let allData = <?php print_r($all);?>; let fromDb = <?php print_r($coll);?>;   </script> 
+<script> let allData = <?php print_r($all);?>;   
+
+let fromDb = <?php print_r($coll);?>;   </script> 
 
    
 <div class="container ">
-<h3>My Google Maps Demo</h3>
 <div id="map"></div>
 <div class="text-center border border-light p-5 col-md-5"  >
 <p class="h4 mb-4">Add shop</p>
