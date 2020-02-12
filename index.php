@@ -18,7 +18,7 @@
   <body>
 
   
-<script> let fromDb =<?php print_r($coll); ?>; let allData = <?php print_r($all);?>; </script>
+<script> let fromDb =<?php print_r($coll); ?>; let allData = <?php print_r($all);?>; console.log(fromDb) </script>
 
 
    

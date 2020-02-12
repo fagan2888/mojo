@@ -30,7 +30,7 @@ function getLng() { return $this->lng; }
     $this->conn = $conn->connect();
     }
     public function getCollegesBlanLatLng(){
-        $sql = "SELECT * FROM $this->tableName WHERE lat IS NULL AND lng IS NULL";
+        $sql = "SELECT * FROM $this->tableName WHERE lat IS NULL AND lng IS NULL LIMIT 10";
         $stmt = $this->conn->prepare($sql);
          $stmt->execute();
        return $stmt->fetchAll(PDO::FETCH_ASSOC);
