@@ -1,4 +1,11 @@
-
+<?php 
+        require 'backend.php';
+        $edu = new Artikim();
+        $coll = $edu->getCollegesBlanLatLng();
+        $coll = json_encode($coll,JSON_UNESCAPED_UNICODE);
+        $all = $edu->getAllColleges();
+        $all = json_encode($all,JSON_UNESCAPED_UNICODE);
+        ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,20 +16,12 @@
   </head>
 
   <body>
-  <?php
-  require 'backend.php';
-  $edu = new Artikim();
-  $coll = $edu->getCollegesBlanLatLng();
-  $coll = json_encode($coll,JSON_UNESCAPED_UNICODE);
-  $all = $edu->getAllColleges();
-  $all = json_encode($all,JSON_UNESCAPED_UNICODE);
-  ?>
+
   
 
-
-   <div id="firstData"><?= $all; ?></div>
-   <div id="secondData"> hhhhh<?= $coll; ?></div>
-
+<script> let allData = <?php print_r($all);?>;</script> 
+<script> let fromDb = <?php print_r($coll);?>;</script>
+   
 <div class="container ">
 <h3>My Google Maps Demo</h3>
 <div id="map"></div>

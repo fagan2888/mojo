@@ -13,7 +13,7 @@ function initMap() {
           };
     
           infoWindow.setPosition(pos);
-          infoWindow.setContent('המיקום שלך.');
+          infoWindow.setContent('מצאנו אותך יקקה.');
           infoWindow.open(map);
           map.setCenter(pos);
         }, function() {
@@ -30,9 +30,6 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-    let allData = document.getElementById('firstData').innerText;
-    let fromDb = document.getElementById('secondData').innerText;
-
     codeAddress(fromDb)
     showAllAddress(allData);
     function showAllAddress(allData){
@@ -57,7 +54,7 @@ function initMap() {
                  points.lat = map.getCenter().lat();
                  points.lng = map.getCenter().lng();
                  updateCollegeWithLatLng(points)
-  
+              
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
