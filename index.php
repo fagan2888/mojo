@@ -1,9 +1,12 @@
 <?php 
         require 'php/backend.php';
+        //create object from class
         $edu = new Artikim();
-        $coll = $edu->getCollegesBlanLatLng();
+        //create varibale contain all address without lng at lat
+        $coll = $edu->getAddressNoltlng();
         $coll = json_encode($coll,JSON_UNESCAPED_UNICODE);
-        $all = $edu->getAllColleges();
+        //create vaiable that conain all data from DB
+        $all = $edu->getAlladdress();
         $all = json_encode($all,JSON_UNESCAPED_UNICODE);
         ?>
 <!DOCTYPE html>
@@ -14,7 +17,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script> let allData = <?php print_r($all)?>; let fromDb = <?php print_r($coll)?>;   </script> 
+    <script> 
+    //create var that contain all addres
+    let allData = <?php print_r($all)?>;
+    //create var that contain address without lat lng
+     let fromDb = <?php print_r($coll)?>; 
+      </script> 
   </head>
 
 <body class= "color-change-2x">

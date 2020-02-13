@@ -1,11 +1,13 @@
 var map;
 var geocoder;
-
+//load app on init
 function initMap() {
+  //create variable map from google.maps class
     var map = new google.maps.Map(
     document.getElementById('map'), {zoom: 13, center: {lat:31.771959, lng: 35.217018}});    
     geocoder = new google.maps.Geocoder();
     infoWindow = new google.maps.InfoWindow;
+    //center the map onload by correct position in map
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {
@@ -32,10 +34,14 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+    //pass variable to function that contain all rows without lat & lng and set new values
     codeAddress(fromDb)
+    //pass all data  to function and set the lat lng on map
     showAllAddress(allData);
+
     function showAllAddress(allData){
       var infowind = new google.maps.InfoWindow;
+      //foreach on array and set on map
         allData.forEach(data=>{
      var  div = document.createElement('div');
      var strong = document.createElement('strong');
@@ -56,6 +62,7 @@ function initMap() {
          
         })
     }
+    //set lat and lng to address
     function codeAddress(fromDb) {
         fromDb.forEach(data => {
             let address =  data.address;
@@ -68,7 +75,8 @@ function initMap() {
                  points.id = data.id
                  points.lat = map.getCenter().lat();
                  points.lng = map.getCenter().lng();
-                 updateCollegeWithLatLng(points)
+                 //send the new data to function
+                 updateAddressWithLatLng(points)
               
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
@@ -76,7 +84,8 @@ function initMap() {
         });
     })
       }
-    function  updateCollegeWithLatLng(points){
+      //update the table with new data
+    function  updateAddressWithLatLng(points){
 
         $.ajax({
             url:'php/action.php',
