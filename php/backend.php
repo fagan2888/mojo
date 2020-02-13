@@ -30,7 +30,7 @@ function getLng() { return $this->lng; }
     $this->conn = $conn->connect();
     }
     public function getCollegesBlanLatLng(){
-        $sql = "SELECT * FROM $this->tableName WHERE lat IS NULL AND lng IS NULL";
+        $sql = "SELECT * FROM $this->tableName WHERE lat IS NULL AND lng IS NULL LIMIT 10";
         $stmt = $this->conn->prepare($sql);
          $stmt->execute();
        return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -45,6 +45,16 @@ function getLng() { return $this->lng; }
   }
   public function insertNew(){
     $sql = $this->conn->prepare("INSERT INTO $this->tableName (name, address) VALUES (:name, :address)");
+    $sql->execute(array('name' => $this->name, 'address' => $this->address));
+    if($sql->execute(array('name' => $this->name, 'address' => $this->address))){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  public function delShop(){
+    $sql = $this->conn->prepare("DELETE   FROM $this->tableName WHERE name = :name AND address = :address ");
     $sql->execute(array('name' => $this->name, 'address' => $this->address));
     if($sql->execute(array('name' => $this->name, 'address' => $this->address))){
       return true;

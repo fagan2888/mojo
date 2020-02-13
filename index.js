@@ -1,5 +1,6 @@
 var map;
 var geocoder;
+
 function initMap() {
     var map = new google.maps.Map(
     document.getElementById('map'), {zoom: 13, center: {lat:31.771959, lng: 35.217018}});    
@@ -13,7 +14,8 @@ function initMap() {
           };
     
           infoWindow.setPosition(pos);
-          infoWindow.setContent('המיקום.');
+          infoWindow.setContent('<img src ="images/person.png" width="20px" height ="30px"/>');
+          infoWindow.setContent
           infoWindow.open(map);
           map.setCenter(pos);
         }, function() {
@@ -33,12 +35,25 @@ function initMap() {
     codeAddress(fromDb)
     showAllAddress(allData);
     function showAllAddress(allData){
+      var infowind = new google.maps.InfoWindow;
         allData.forEach(data=>{
+     var  div = document.createElement('div');
+     var strong = document.createElement('strong');
+          strong.textContent = data.name;
+          div.appendChild(strong);
+    
             var marker = new google.maps.Marker({
                 map: map,
-                icon: 'summer.png',
+                icon: 'images/summer.png',
                 position: new google.maps.LatLng(data.lat ,data.lng),
             });
+            marker.addListener('click',function(){
+              console.log(infowind);
+              infowind.setContent(div);
+              infowind.open(map,marker)
+            })
+            
+         
         })
     }
     function codeAddress(fromDb) {
@@ -64,7 +79,7 @@ function initMap() {
     function  updateCollegeWithLatLng(points){
 
         $.ajax({
-            url:'action.php',
+            url:'php/action.php',
             method:'post',
             data:points,
             success:function(res){
@@ -76,6 +91,12 @@ function initMap() {
 
 
   }
+
+
+
+
+
+
   
   function AddLocation(){
    
@@ -87,11 +108,32 @@ function initMap() {
     }
     
     $.ajax({
-        url:'insert.php',
+        url:'php/insert.php',
         method:'post',
         data:newShop,
         success:function(res){
-            console.log(res);
+          window.location.reload(false); 
+          alert(res)
+        }
+    })
+
+  }
+  function delLocation(){
+    let address_del = document.getElementById('address-del').value;
+    let shopName_del = document.getElementById('shopName-del').value;
+    let delShop = {
+        address :address_del,
+        name :shopName_del
+    }
+    console.log(delShop)
+    
+    $.ajax({
+        url:'php/delete.php',
+        method:'post',
+        data:delShop,
+        success:function(res){
+          window.location.reload(false); 
+          alert(res)
         }
     })
   }

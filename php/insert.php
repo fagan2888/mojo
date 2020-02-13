@@ -7,7 +7,7 @@ $result = $newItem->insertNew();
 if($result){
     echo 'כתובת חדשה נוספה';
 }else{
-    echo 'have problem';
+    echo 'משהו השתבש';
 }
 
 
